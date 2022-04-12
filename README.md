@@ -15,6 +15,8 @@
 - MUI has been used to style the UI
 - The dummy data is fetched from [dummyapi.io] (https://www.dummyapi.io/)
 
+###### Though there is an issue with the ADD functionality, one can see the added data in the console.
+
 ###### Extra Features:
 
 - Added a search bar to search users by name.

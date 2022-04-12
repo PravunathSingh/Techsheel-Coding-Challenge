@@ -6,17 +6,9 @@ import { Users } from '../../context/usersContext';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const UserList = ({ allUsers }) => {
-  // const partusers = allUsers.slice(0, 5);
-  // const [slicedUsers, setSlicedUsers] = useState(() => {
-  //   return allUsers.slice(0, 6);
-  // });
-
   const usersCtx = useContext(Users);
 
-  // const [slicedUsers, setSlicedUsers] = useState(partusers);
-
   const [isFetching, setIsFetching] = useState(false);
-  // console.log(slicedUsers);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -36,15 +28,6 @@ const UserList = ({ allUsers }) => {
     )
       return;
     setIsFetching(true);
-  }
-
-  function fetchMoreListItems() {
-    usersCtx.getNewUsers(allUsers.length * 2);
-    if (allUsers.length >= 55) {
-      setIsFetching(false);
-    } else {
-      usersCtx.getNewUsers(allUsers.length * 2);
-    }
   }
 
   const usersList = allUsers.map((user) => {

@@ -28,7 +28,7 @@ const UsersProvider = ({ children }) => {
       user,
       config
     );
-    // console.log(res.data);
+    console.log(res.data);
   };
 
   const deleteUser = async (id) => {
