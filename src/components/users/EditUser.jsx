@@ -22,7 +22,7 @@ const EditUser = () => {
     const getUserDetails = async () => {
       const config = {
         headers: {
-          'app-id': '6253cf9bb834d5b0ba49be8f',
+          'app-id': '6256983a2fbcea61ae39fe8e',
         },
       };
       const res = await axios.get(
@@ -49,7 +49,7 @@ const EditUser = () => {
     e.preventDefault();
     const config = {
       headers: {
-        'app-id': '6253cf9bb834d5b0ba49be8f',
+        'app-id': '6256983a2fbcea61ae39fe8e',
       },
     };
 

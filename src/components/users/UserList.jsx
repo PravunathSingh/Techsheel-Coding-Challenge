@@ -8,7 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const UserList = ({ allUsers }) => {
   const usersCtx = useContext(Users);
 
-  const [isFetching, setIsFetching] = useState(false);
+  const [isBottom, setIsBottom] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -16,18 +16,22 @@ const UserList = ({ allUsers }) => {
   }, []);
 
   useEffect(() => {
-    if (!isFetching) return;
-    usersCtx.getNewUsers(allUsers.length * 2);
-    setIsFetching(false);
-  }, [isFetching]);
+    if (isBottom) {
+      usersCtx.getNewUsers(allUsers.length + 10);
+      setIsBottom(false);
+    }
+  }, [isBottom]);
 
   function handleScroll() {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-      document.documentElement.offsetHeight
-    )
-      return;
-    setIsFetching(true);
+    const scrollTop =
+      (document.documentElement && document.documentElement.scrollTop) ||
+      document.body.scrollTop;
+    const scrollHeight =
+      (document.documentElement && document.documentElement.scrollHeight) ||
+      document.body.scrollHeight;
+    if (scrollTop + window.innerHeight + 50 >= scrollHeight) {
+      setIsBottom(true);
+    }
   }
 
   const usersList = allUsers.map((user) => {

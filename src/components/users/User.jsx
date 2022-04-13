@@ -21,7 +21,7 @@ const User = ({ user }) => {
     const getUserDetails = async () => {
       const config = {
         headers: {
-          'app-id': '6253cf9bb834d5b0ba49be8f',
+          'app-id': '6256983a2fbcea61ae39fe8e',
         },
       };
 
